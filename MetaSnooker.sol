@@ -1209,7 +1209,9 @@ constructor() public ERC20("MetaSnooker", "MSR") {
  
  
     function setMaxSellTransactionAmount(uint256 value) public onlyOwner{
-            require(value <= (totalSupply * 1 / 100), "MetaSnooker : Max Sell transaction must be inferior to 1% of the supply");
+
+require(value >= (1000000 * (10**18)), "MetaSnooker : Max Sell transaction must be more then 1% of the supply");
+
         maxSellTransactionAmount = value * (10**18);
  
     }
