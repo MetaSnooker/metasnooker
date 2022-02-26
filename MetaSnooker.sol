@@ -1178,15 +1178,13 @@ constructor() public ERC20("MetaSnooker", "MSR") {
     }
  
     function setCooldownEnabled(bool value) public onlyOwner{
- 
         cooldownEnabled = value;
  
     }
  
     function setCooldownTime(uint256 value) public onlyOwner{
- 
+        require(value > 0 && value <= 30, "Value must be superior to 0 seconds and inferior to 30 seconds");
         cooldownTime = value;
- 
     }
  
  
